@@ -7,6 +7,6 @@ class Coffee < ApplicationRecord
     # accepts_nested_attributes_for :brand 
     
     def brand_attributes=(attributes)
-        brand = Brand.find_or_create_by(attributes) if !attributes[:name].empty?
+        brand = Brand.find_or_create_by(attributes) if !attributes !name.empty? 
     end 
 end

@@ -4,6 +4,7 @@
 <% @coffees.each do |c| %>
 
     <h2><%= c.flavor%> - <%= c.brand.name %></h2>
+    <%= link_to "Write a review", new_coffee_review_path(c.id)%>
     <div>
         <p><%= c.description%></p>
     </div>

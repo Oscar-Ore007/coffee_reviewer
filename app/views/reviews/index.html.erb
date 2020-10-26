@@ -1,0 +1,11 @@
+<% if @coffee %>
+  <h1>Reviews for <%= @coffeeflavor%> - <%= @coffee.brand.name%></h1>
+<% else %>
+  <h1>All the Reviews </h1>
+<% end %>
+
+    <ul>
+        <% @reviews.each do |r| %>
+        <li><%= r.coffee.flavor%>: <%= r.title%> - <%= r.stars%></li> <br>
+    <%end%>
+    </ul>
