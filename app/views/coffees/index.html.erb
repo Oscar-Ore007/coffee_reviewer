@@ -1,0 +1,10 @@
+<h1>All the Coffee's</h1>
+
+
+<% @coffees.each do |c| %>
+
+    <h2><%= c.flavor%> - <%= c.brand.name %></h2>
+    <div>
+        <p><%= c.description%></p>
+    </div>
+<% end %>
