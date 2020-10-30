@@ -6,8 +6,10 @@ Rails.application.routes.draw do
   post '/login' => 'sessions#create'
   delete 'logout' => 'sessions#destroy'
 
-   get '/signup' => 'users#new'
+  get '/signup' => 'users#new'
   post '/signup' => 'users#create'
+
+  get '/auth/:provider/callback' => 'sessions#oauth_login'
 
   resources :reviews
   resources :coffees do 
@@ -16,6 +18,6 @@ Rails.application.routes.draw do
 
 
   resources :brands
-  resources :users
+  resources :users, only: [:show]
   # For details on the DSL available within this file, see https://guides.rubyonrails.org/routing.html
 end

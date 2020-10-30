@@ -9,10 +9,24 @@
     <%= javascript_pack_tag 'application', 'data-turbolinks-track': 'reload' %>
   </head>
 
-  <body>
 
-  <%= link_to 'Logout', '/logout', method: :delete %>
-  <%= link_to 'Add a new Coffee' , new_coffee_path%>
+<div>
+<div class ='container'>
+<%= link_to "Log Out", logout_path, method: :delete%>
+<%= link_to "Add a Coffee", new_coffee_path %>
+<%= link_to "All Coffees", coffees_path %>
+<%= link_to "Add a Review", new_review_path%> 
+<%= link_to "All Reviews", reviews_path%> 
+<%= link_to "All Brands", brands_path %>
+  </div>
+   <div class ='container'>
+    <p class="h1 display-12">Find Your Perfect Coffee Cup!</p>
+    <div class ='container'>
+</div>
+
+
+  <body>
+  
     <%= yield %>
   </body>
 </html>

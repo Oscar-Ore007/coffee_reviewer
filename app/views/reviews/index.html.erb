@@ -6,6 +6,6 @@
 
     <ul>
         <% @reviews.each do |r| %>
-        <li><%= r.coffee.flavor%>: <%= r.title%> - <%= r.stars%></li> <br>
+        <li><%= r.coffee.flavor%>: <%= link_to r.title, review_path(r)%> - <%= r.stars%></li> <br>
     <%end%>
     </ul>

@@ -1,5 +1,6 @@
 <h1> Make a new Coffee </h1>
 
+<%= render partial: 'layouts/errors', locals: {object: @ice_cream}  %>
 
 <%= form_for(@coffee) do |f| %>
 <div>
@@ -14,6 +15,7 @@
 <p> Select a brand that already exists: </p>
     <div>
         <%= f.collection_select :brand_id, Brand.all, :id, :name, include_blank: 'Select One' %>
+    
     </div>
 
 <p> Or create a new Brand: </p>
@@ -24,5 +26,5 @@
     <% end %>
     </div>
     <br>
-    <%= f.submit "Submit"%>
+    <%= f.submit %>
 <% end %>

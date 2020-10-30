@@ -11,16 +11,29 @@ class CoffeesController < ApplicationController
         if @coffee.save 
             redirect_to coffee_path(@coffee)
         else 
+            @coffee.build_brand 
             render :new 
     end 
 end 
 
 def index 
-    @coffees = Coffee.all 
+    @coffees = Coffee.order_by_rating.includes(:brand)
 end 
 
 def show 
     @coffee = Coffee.find_by_id(params[:id])
+end 
+
+
+def edit 
+end 
+
+def update 
+    if @coffee.update(coffee_params)
+        redirect_to coffee_path(@coffee)
+    else 
+        render :edit 
+    end 
 end 
 
     private 
