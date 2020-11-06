@@ -24,7 +24,7 @@ class SessionsController < ApplicationController
 
     def oauth_login
         @user = User.from_omniauth(auth)
-        @user.save
+        # @user.save
         session[:user_id] = @user.id 
             redirect_to user_path(@user.id)
     end 

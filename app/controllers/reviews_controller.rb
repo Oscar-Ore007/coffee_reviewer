@@ -1,5 +1,7 @@
 class ReviewsController < ApplicationController
 
+  before_action :redirect_if_not_logged_in 
+
 def new
     if @coffee = Coffee.find_by_id(params[:coffee_id])
       @review = @coffee.reviews.build
