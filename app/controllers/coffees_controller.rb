@@ -8,7 +8,8 @@ class CoffeesController < ApplicationController
 
     def create 
         @coffee = Coffee.new(coffee_params)
-        @coffee.user_id = session[:user_id]
+        @coffee.user_id = current_user.id 
+     
         if @coffee.save 
             redirect_to coffee_path(@coffee)
         else 
@@ -18,6 +19,7 @@ class CoffeesController < ApplicationController
 end 
 
 def index 
+    @title = "All"
     @coffees = Coffee.order_by_rating.includes(:brand)
 end 
 
@@ -27,6 +29,21 @@ end
 
 
 def edit 
+end 
+
+def hazelnut
+    # @coffees = Coffee.all.select do |coffee| 
+    #     coffee.flavor.include?('Hazelnut')
+    # binding.pry
+    @title = "Hazelnut"
+    @coffees = Coffee.hazelnut 
+    render :index
+end 
+
+def vanilla 
+    @coffees = Coffee.vanilla 
+    @title = "Vanilla"
+    render :index
 end 
 
 def update 

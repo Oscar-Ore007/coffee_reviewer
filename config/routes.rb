@@ -11,6 +11,12 @@ Rails.application.routes.draw do
 
   get '/auth/:provider/callback' => 'sessions#oauth_login'
 
+  get '/hazelnuts' => 'coffees#hazelnut'
+
+  get '/vanilla' => 'coffees#vanilla'
+
+  get '/banana' => 'coffees#vanilla'
+
   resources :reviews
   resources :coffees do 
     resources :reviews, only: [:new, :index]

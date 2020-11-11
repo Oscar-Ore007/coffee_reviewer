@@ -11,6 +11,18 @@ class Coffee < ApplicationRecord
 
     scope :order_by_rating, -> {left_joins(:reviews).group(:id).order('avg(stars) desc')}
 
+    def self.hazelnut
+       Coffee.all.select do |coffee| 
+        coffee.flavor.include?('Hazelnut')
+       end 
+    end 
+
+    def self.vanilla 
+       Coffee.all.select do |coffee| 
+        coffee.flavor.downcase.include?('vanilla')
+    end 
+  end
+
     def self.alpha
         order(:flavor)
     end
